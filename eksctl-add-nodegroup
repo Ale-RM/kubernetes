@@ -1,7 +1,12 @@
- eksctl create nodegroup \
- --cluster=taal-dev-cluster \
+
+#managed nodegorup on demand
+eksctl create nodegroup \
+ --cluster=esempio-mio-cluster\
  --managed --name=esempio-cluster-nodes \
  --node-type t2.medium \
  --nodes 1 \
  --nodes-min 1 \
  --nodes-max 2
+
+#managed nodegorup spot
+$ eksctl create nodegroup --cluster=esempio-mo-cluster --spot --instance-types=t2.medium,t3.medium,t3a.medium
