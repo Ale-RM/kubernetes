@@ -1,0 +1,7 @@
+ eksctl create nodegroup \
+ --cluster=taal-dev-cluster \
+ --managed --name=esempio-cluster-nodes \
+ --node-type t2.medium \
+ --nodes 1 \
+ --nodes-min 1 \
+ --nodes-max 2
