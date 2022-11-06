@@ -1,12 +1,25 @@
-apiVersion: autoscaling/v1
+
+ 
+#Comando imperativo: kubectl autoscale deployment nginx --cpu-percent=50 --min=1 --max=10
+ 
+ 
+apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
- name: nginx
+  name: nginx
+  namespace: default
 spec:
- maxReplicas: 10
- minReplicas: 2
- scaleTargetRef:
- apiVersion: extensions/v1beta1
- kind: Deployment
- name: nginx
- targetCPUUtilizationPercentage: 50
+  maxReplicas: 20
+  metrics:
+  - resource:
+      name: cpu
+      target:
+        averageUtilization: 50
+        type: Utilization
+    type: Resource
+  minReplicas: 2
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: nginx
+ 
