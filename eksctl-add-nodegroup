@@ -7,6 +7,15 @@ eksctl create nodegroup \
  --nodes 1 \
  --nodes-min 1 \
  --nodes-max 2
+  --asg-access # set policy for autoscaler...
 
 #managed nodegorup spot
-$ eksctl create nodegroup --cluster=esempio-mo-cluster --spot --instance-types=t2.medium,t3.medium,t3a.medium
+eksctl create nodegroup \
+ --cluster=esempio-cluster\
+ --managed --name=esempio-node-spot \
+ --spot \
+ --instance-types=t2.medium,t3.medium,t3a.medium \
+ --nodes 2 \
+ --nodes-min 2 \
+ --nodes-max 6 \
+ --asg-access
