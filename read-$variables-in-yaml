@@ -1,0 +1,1 @@
+# for jenkins pipeline, envsubst must be installed.. sh 'envsubst < kubernetes/deployment.yaml | kubectl apply -f -'
