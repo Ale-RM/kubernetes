@@ -25,8 +25,8 @@ spec:
             cpu: 180m
             memory: 256Mi 
         volumeMounts:
-      - mountPath: "/var/www/html"
-        name: pv-nginx
+        - mountPath: "/var/www/html"
+          name: pv-nginx
   volumes:
     - name: pv-nginx
       persistentVolumeClaim:
