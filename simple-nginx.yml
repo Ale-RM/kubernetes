@@ -30,7 +30,7 @@ spec:
         volumes:
         - name: pv-nginx
           persistentVolumeClaim:
-            claimName: pv-claim-nginx   
+            claimName: pvc-nginx   
             
         
 ---
